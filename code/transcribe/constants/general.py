@@ -1,0 +1,63 @@
+# Constant settings
+
+# RL settings
+NUM_EPISODES = 50
+MAX_ITERATIONS = 500
+GAMMA = 0.5
+LEARNING_RATE=0.001
+BATCH_SIZE = 16
+RAND_SEED = 0
+MEMORY_CAPACITY = 10000
+EPSILON_START = 0.9 #0.5
+EPSILON_END = 0.05
+EPSILON_DECAY_RATE = 100
+NO_NOTE_EPSILON = 0.0
+TARGET_UPDATE_FREQUENCY = 30
+
+# Piano environment settings
+MDP_TYPE = 'stopping' # alternative: 'stopping', 'continuing'
+NUM_KEYS = 88
+NUM_ACTIONS = NUM_KEYS + 1
+OCT_MIDI = 3
+MIN_MIDI = 0 #4 + (12*OCT_MIDI) - 1
+MAX_MIDI = MIN_MIDI + NUM_KEYS
+STATE_SIZE = 229
+MAX_MIDI = 108
+FIXED_FINAL_STATE=None #None #1
+SILENT_START_LENGTH = 0
+DEFAULT_DATA_SET = "SingleAudio"
+SINGLE_AUDIO_PATH = "./tmp/audio_targets/sample-88-1-88-0.flac"
+REWARD_SETTINGS = dict(
+    REWARD_TYPE = "discrete",
+    DIFF_REWARD = False,
+    NEG_THRESH = -0.1,
+    POS_THRESH = -0.1,
+    NEG_VALUE = -1,
+    POS_VALUE = 1,
+    NEUTRAL_VALUE = 0,
+)
+
+
+# Model settings
+MODEL_SAVE_PATH = "./tmp/tmp_models_2/"
+MODEL_SAVE_FREQUENCY = 1
+MODEL_INPUT_SIZE = STATE_SIZE
+MODEL_OUTPUT_SIZE = NUM_ACTIONS
+MODEL_ARCHITECTURE = [256,256,256]
+
+# Maestro settings
+MAESTRO_PATH = "../../../onsets-and-frames/data/MAESTRO"
+SEQUENCE_LENGTH = 327680
+
+# Mel-scaled spectrogram settings
+MEL_SAMPLE_RATE = 16000
+MEL_WIN_LENGTH = 2048
+MEL_HOP_LENGTH = 2048 #512
+MEL_N_MELS = 229
+MEL_HOP_LENGTH_SECS = MEL_HOP_LENGTH / MEL_SAMPLE_RATE
+
+# Pianoteq settings
+PIANOTEQ_PATH = "./../../../pianoteq/amd64/Pianoteq 6"
+
+#Other
+VERBOSE=1
